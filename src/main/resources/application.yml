@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/training_db
+    username: postgres
+    password: password
+    platform: postgres
