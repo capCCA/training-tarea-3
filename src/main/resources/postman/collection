@@ -1,0 +1,25 @@
+curl --location --request GET 'http://localhost:8080/capgemini/training/customer/123456789'
+
+curl --location --request POST 'http://localhost:8080/capgemini/training/customer/' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "customerId" : "9999999999",
+    "documentType" : "DNI",
+    "documentNumber" : "33221122M",
+    "name" : "AdriTest",
+    "surName" : "AdriTest",
+    "country" : "esp",
+    "telephone" : "676872345"
+}'
+
+curl --location --request PUT 'http://localhost:8080/capgemini/training/customer/' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "customerId" : "9999999999",
+    "name" : "AdriTest",
+    "surName" : "AdriTest",
+    "country" : "arg"
+}'
+
+curl --location --request DELETE 'http://localhost:8080/capgemini/training/customer/123456789' \
+--data-raw ''
