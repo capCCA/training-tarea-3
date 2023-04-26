@@ -54,11 +54,11 @@ Cada tarea indica el número de días que invertiremos en el aprendizaje y desar
 | Type (if it empties, it will be your own election) | varchar(10)               | varchar(8)    | varchar(50)     | varchar(100) | varchar(100) | varchar(100) | varchar(3) | integer   | TimeStamp     | TimeStamp   |
 
 #### Payment
-| Field name                                         | Payment_id  (primary key) | Customer_id        | customer_id        | payment_type    | amount   | Creation_date | Update_date |
-|----------------------------------------------------|---------------------------|--------------------|--------------------|-----------------|----------|---------------|-------------|
-| Allowed Values                                     |                           | Must be a User row | Must be a User row | bizum, transfer |          |               |             |
-| Allowed nulls                                      | Not null                  | Not null           | Not null           | Not null        | Not null | Not null      |             |
-| Type (if it empties, it will be your own election) | BigSerial                 | varchar(10)        | varchar(10)        | varchar(10)     | decimal  | TimeStamp     | TimeStamp   |
+| Field name                                         | Payment_id  (primary key) | Customer_id        | Beneficiary_id            | Payment_type    | Amount   | Creation_date | Update_date |
+|----------------------------------------------------|---------------------------|--------------------|---------------------------|-----------------|----------|---------------|-------------|
+| Allowed Values                                     |                           | Must be a User row | Must be a Beneficiary row | bizum, transfer |          |               |             |
+| Allowed nulls                                      | Not null                  | Not null           | Not null                  | Not null        | Not null | Not null      |             |
+| Type (if it empties, it will be your own election) | BigSerial                 | varchar(10)        | varchar(10)               | varchar(10)     | decimal  | TimeStamp     | TimeStamp   |
 
 #### Beneficiary
 | Field name                                         | Beneficiary_id  (primary key) | Creation_date | Update_date |
@@ -67,10 +67,10 @@ Cada tarea indica el número de días que invertiremos en el aprendizaje y desar
 | Allowed nulls                                      | Not null                      | Not null      |             |
 | Type (if it empties, it will be your own election) | varchar(10)                   | TimeStamp     | TimeStamp   |
 
-1. De la tabla payment se relaciona la columna Customer_id con la columna Customer_id de la tabla customerDetails.   <br>
+1. La columna Customer_id de la tabla payment se relaciona con la columna Customer_id de la tabla customer.   <br>
 2. La columna Beneficiary_id de la tabla payment se relaciona con la columna Beneficiary_id de la tabla beneficiary.
 
-**El campo customerId damos por supuesto que van a tener una longitud de 9 dígitos numéricos. (No hace falta controlarlo en el código ni a nivel de base de datos).**
+**El campo customerId damos por supuesto que va a tener una longitud de 10 dígitos numéricos. (No hace falta controlarlo en el código ni a nivel de base de datos).**
 
 ## Tarea 3: día 6
 
@@ -81,7 +81,7 @@ Cada tarea indica el número de días que invertiremos en el aprendizaje y desar
    4. Borrado de un usuario. Método Delete, como parámetro de entrada en la URL el {customerId}.
 2. Crear tantos servicios como controladores tenemos en el punto 1 (usa lombok para la inyección de dependencias).
 
-**Nota**: Utilizar interfaces solamente para la definición de los repositorios. No usar interfaces para la definición de controladores ni  de servicios.
+**Nota**: Utilizar interfaces solamente para la definición de los repositorios. No usar interfaces para la definición de controladores ni de servicios.
 
 ## Tarea 4: día 7
 
